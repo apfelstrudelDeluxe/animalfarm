@@ -14,6 +14,18 @@ public class Cashier extends Sale{
         this.cashierStation = cashierStation;
         this.revenue = revenue;
     }
+
+    public String getKeyId() {
+        return keyId;
+    }
+
+    public String getCashierStation() {
+        return cashierStation;
+    }
+
+    public double getRevenue() {
+        return revenue;
+    }
 }
 
 

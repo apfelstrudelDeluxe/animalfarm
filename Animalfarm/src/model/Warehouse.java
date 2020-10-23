@@ -11,4 +11,12 @@ public class Warehouse extends Employee  {
         this.bonus = bonus;
         this.licenses = licenses;
     }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public List<String> getLicenses() {
+        return licenses;
+    }
 }
