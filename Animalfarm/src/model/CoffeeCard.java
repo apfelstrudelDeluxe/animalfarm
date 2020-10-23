@@ -8,5 +8,6 @@ public class CoffeeCard extends Card {
     public CoffeeCard(Employee employee, LocalDate dueDate, double credit) {
         super(employee, dueDate, "c" + UUID.randomUUID());
         this.credit = credit;
+
     }
 }
