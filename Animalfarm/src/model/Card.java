@@ -7,9 +7,12 @@ public class Card {
     private LocalDate dueDate;
     private final String ID;
 
-    public Card(Employee employee, LocalDate dueDate, String ID) {
-        this.employee = employee;
+    public Card(LocalDate dueDate, String ID) {
         this.dueDate = dueDate;
         this.ID = ID;
+    }
+
+    public boolean isValid(LocalDate cardTime) {
+        return cardTime.isBefore(dueDate);
     }
 }

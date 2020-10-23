@@ -7,39 +7,11 @@ import java.util.List;
 
 
 public class EmployeeManagement {
-    private List<Employee> employees;
+    private final List<Employee> employees;
 
     public EmployeeManagement() {
 
         this.employees = new ArrayList<>();
-
-    }
-
-    private void setUp() {
-
-        employees.add(new Employee("Franz", "Huber", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Helga", "Mair", 745645, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Daniel", "Hofer", 858945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Susi", "MussDarf", 758943, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Elfi", "Bauer", 758995, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Udo", "Lindner", 158945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Max", "Mustermann", 768945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("John", "Doe", 752945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Ida", "Pfeifer", 458945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Mustafa", "MussDann", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Bin", "Laden", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Ali", "Alf", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-        employees.add(new Employee("An", "Ette", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
-
-
-
-
-    }
-
-    public static void main(String[] args) {
-        EmployeeManagement empList = new EmployeeManagement();
-
-        System.out.println(empList.employees);
 
     }
 
@@ -115,10 +87,10 @@ public class EmployeeManagement {
 
 
         }
-
         return -1;
     }
 
-
-
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 }
