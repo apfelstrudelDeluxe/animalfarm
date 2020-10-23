@@ -43,10 +43,10 @@ public class EmployeeManagement {
 
     }
 
-    public Employee getEmp(String ID) {
+    public Employee getEmp(int svn) {
 
         for (Employee e : employees) {
-            if (e.getID().equals(ID)) {
+            if (e.getSvn() == svn) {
                 return e;
             }
         }
@@ -68,9 +68,9 @@ public class EmployeeManagement {
 
     }
 
-    public boolean deleteEmp(String ID) {
+    public boolean deleteEmp(int svn) {
 
-        Employee e = getEmp(ID);
+        Employee e = getEmp(svn);
         if (e == null) {
             return false;
         }

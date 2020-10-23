@@ -11,7 +11,6 @@ public class Employee {
     private String sex;
     private int salary;
     private Address address;
-    private final String ID;
 
     public Employee(String firstName, String secondName, int svn, Location location, String sex, int salary, Address address) {
         this.firstName = firstName;
@@ -21,11 +20,11 @@ public class Employee {
         this.sex = sex;
         this.salary = salary;
         this.address = address;
-        this.ID = secondName + new Random().nextInt(1000);
+
     }
 
-    public String getID() {
-        return ID;
+    public int getSvn() {
+        return svn;
     }
 
     @Override
@@ -41,15 +40,5 @@ public class Employee {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object obj) {
 
-        if(obj instanceof Employee){
-
-          return ((Employee) obj).ID.equals(this.ID);
-
-        }
-
-        return false;
-    }
 }
