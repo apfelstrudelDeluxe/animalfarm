@@ -14,9 +14,9 @@ public class EmployeeManagement {
     public EmployeeManagement() {
 
         this.employees = new ArrayList<>();
-        employees.add(new Employee("Franz", "Huber", 758945, new Location(), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Helga", "Mair", 758945, new Location(), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Daniel", "Hofer", 758945, new Location(), "male", 1500, new Address(" ")));
+        employees.add(new Employee("Franz", "Huber", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
+        employees.add(new Employee("Helga", "Mair", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
+        employees.add(new Employee("Daniel", "Hofer", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria" ), "male", 1500, new Address(" ")));
 
     }
 
@@ -42,10 +42,18 @@ public class EmployeeManagement {
     public boolean deleteEmp(String ID) {
 
         Employee e = getEmp(ID);
-        if(e == null) {
+        if (e == null) {
             return false;
         }
         return employees.remove(e);
     }
+
+    public boolean addEmp(Employee e) {
+
+        return employees.add(e);
+
+    }
+
+
 
 }
