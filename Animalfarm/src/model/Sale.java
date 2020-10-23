@@ -1,3 +1,5 @@
+package model;
+
 public class Sale extends Employee {
 
     private boolean teamlead;

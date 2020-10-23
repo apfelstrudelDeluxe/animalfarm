@@ -1,5 +1,6 @@
+package model;
+
 import java.util.Random;
-import java.util.UUID;
 
 public class Employee {
 
@@ -29,7 +30,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "model.Employee{" +
                 "firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", svn=" + svn +

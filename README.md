@@ -1,8 +1,8 @@
 # animalfarm
 
 welche Funktionen soll unsere Mitarbeiterverwaltung haben: 
-* Aufladen der Coffee Card
-* Alle MA vom Sale + Office ausgeben
+* Aufladen der Coffee model.Card
+* Alle MA vom model.Sale + model.Office ausgeben
 * Welcher Chef welche MA hat
 * Teamlead von Sales ausgeben
 * neue Keycard angelegen
@@ -12,22 +12,22 @@ welche Funktionen soll unsere Mitarbeiterverwaltung haben:
 * Umsatz pro Kasse
 * Alle Karten die demnächst ablaufen
 * Adressänderung von MA
-* Einem Boss ein Auto zuteilen
+* Einem model.Boss ein Auto zuteilen
 * MA anlegen
 * Wer erhält welchen Bonus
 
 ## Main aufrufen. 
 Welcher Benutzer bis du? 
 Je nachdem welcher Benutzer du bist, hast du verschiedene Möglichkeiten
-* Office: Coffee Card aufladen, oder Guthaben abfragen
+* model.Office: Coffee model.Card aufladen, oder Guthaben abfragen
 Ändern, einfügen, löschen von MA
 Suche nach *Nachnamen* 
-* Boss (Annahme: kann nur abfragen): Wieviele MA arbeiten insgesamt bzw. in den einzelnen Abteilungen. 
+* model.Boss (Annahme: kann nur abfragen): Wieviele MA arbeiten insgesamt bzw. in den einzelnen Abteilungen. 
 Gehalt/ Umsatz je MA/ Übersicht über Warehousa MA und deren Führerschein
 
-## Office 
-was möchtest du machen Coffe Card / MA-Verwaltung 
-Coffee Card -> aufladen oder abfragen oder ausgeben, wann welche ablaufen
+## model.Office 
+was möchtest du machen Coffe model.Card / MA-Verwaltung 
+Coffee model.Card -> aufladen oder abfragen oder ausgeben, wann welche ablaufen
 
 MA-Verwaltung: MA hinzufügen / MA ändern / MA löschen /MA abfragen
 * hinzufügen: eingeben von Vorname, Nachname, Adresse, usw. 
@@ -35,6 +35,6 @@ MA-Verwaltung: MA hinzufügen / MA ändern / MA löschen /MA abfragen
 * löschen: zum Löschen bestätigen oder exit
 * abfragen: Nachname eingeben, wenn gefunden, dann ausgeben
 
-## Boss
-der Boss kann nur abfragen
+## model.Boss
+der model.Boss kann nur abfragen
 * Abfrage zu MA / Umätze / Zulagen / Führerscheinliste 

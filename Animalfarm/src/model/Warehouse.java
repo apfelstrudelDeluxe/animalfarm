@@ -1,4 +1,5 @@
-import java.util.Collections;
+package model;
+
 import java.util.List;
 
 public class Warehouse extends Employee  {
