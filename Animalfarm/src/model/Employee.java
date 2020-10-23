@@ -41,4 +41,15 @@ public class Employee {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj instanceof Employee){
+
+          return ((Employee) obj).ID.equals(this.ID);
+
+        }
+
+        return false;
+    }
 }
