@@ -1,6 +1,7 @@
 import controller.EmployeeManagement;
 import model.*;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class Main {
     private static final EmployeeManagement employeeManagement = new EmployeeManagement();
     private static final List<Employee> employees = employeeManagement.getEmployees();
     private static final Scanner scanner = new Scanner(System.in);
+    private static final List<Location> locations = new ArrayList<>();
 
     public static void main(String[] args) {
         setup();
@@ -26,7 +28,18 @@ public class Main {
                 officeWorker();
                 break;
             case 2:
-                System.out.println();
+                int pw = 147;
+                System.out.println("Bitte Passwort");
+                int sc = Integer.parseInt((scanner.nextLine()));
+
+
+                if (sc == pw){
+                    System.out.println("Hallo Boss");
+                } else {
+                    System.out.println("Falsches Passwort");
+                    officeWorker();
+                    break;
+                }
             case 3:
                 System.out.println("");
             default:
@@ -40,10 +53,44 @@ public class Main {
        Employee employee =  getEmp();
         System.out.println(employee);
 
+        empDetails(employee);
+
+
+    }
+
+    private static void bossDetails() {
+        System.out.println("Was möchtest du machen?");
+        System.out.println("1. Mitarbeiter anlegen");
+        System.out.println("2. Mitarbeiter löschen");
+        System.out.println("3. Gesamtumsatz aufrufen");
+        System.out.println("4. Zurück zum Ursprung");
+
+        int sc = Integer.parseInt((scanner.nextLine()));
+
+        switch (sc) {
+
+            case 1:
+                System.out.println("Mitarbeiter vom Lager(1), Kassa(2), Büro(3)?");
+                int group = Integer.parseInt((scanner.nextLine()));
+                System.out.println("Vorname");
+                System.out.println("Nachname");
+                System.out.println("SVN");
+                System.out.println("Geschlecht");
+                System.out.println("Gehalt");
+
+
+        }
+
+
+    }
+
+
+    private static void empDetails(Employee employee) {
         System.out.println("Was möchtest du bei diesem Mitarbeiter machen?");
         System.out.println("1. Umsatz abfragen");
         System.out.println("2. Bonus abfragen");
         System.out.println("3. Führerschein abfragen");
+        System.out.println("4. Zurück zum Ursprung");
 
         int sc = Integer.parseInt((scanner.nextLine()));
         switch (sc) {
@@ -55,6 +102,7 @@ public class Main {
                 } else {
                     System.out.println("Der Kassierer hat einen Umsatz von " + rev);
                 }
+                empDetails(employee);
                 break;
 
             case 2:
@@ -65,6 +113,7 @@ public class Main {
                 } else {
                     System.out.println("Der Mitarbeiter hat einen Bonus von " + boni);
                 }
+                empDetails(employee);
                 break;
 
             case 3:
@@ -74,12 +123,16 @@ public class Main {
                 } else {
                     System.out.println("Der Mitarbeiter hat folgende Führerscheine " + lic);
                 }
+                empDetails(employee);
                 break;
+
+            case 4:
+                getEmp();
+                break;
+            default:
+                empDetails(employee);
+
         }
-
-
-
-
     }
 
     private static Employee getEmp() {
@@ -103,8 +156,17 @@ public class Main {
 
         Location office = new Location(officeAddress);
         Location shop = new Location(shopAddress);
+        locations.add(office);
+        locations.add(shop);
 
-        employees.add(new Warehouse("Franz", "Huber", 123, linz, "male", 1500, shop, 1500, new ArrayList<String>().add("A")));
+
+        List<String> licen = new ArrayList<>();
+        licen.add("B");
+        licen.add("A");
+        List<String> otherLicen = new ArrayList<>();
+        otherLicen.add("C");
+        otherLicen.addAll(licen);
+        employees.add(new Warehouse("Franz", "Huber", 123, linz, "male", 1500, shop, 1500, licen));
         employees.add(new Cashier("Helga", "Mair", 456, linz, "male", 1500, shop, false, "GeldNehmen", "1A", 25000));
         employees.add(new Employee("Daniel", "Hofer", 858945, linz, "male", 1500, office));
         employees.add(new Employee("Susi", "MussDarf", 758943, linz, "male", 1500, office));
