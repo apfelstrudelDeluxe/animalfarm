@@ -35,19 +35,27 @@ public class Main {
     }
 
     private static void setup() {
-        employees.add(new Employee("Franz", "Huber", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Helga", "Mair", 745645, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Daniel", "Hofer", 858945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Susi", "MussDarf", 758943, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Elfi", "Bauer", 758995, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Udo", "Lindner", 158945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Max", "Mustermann", 768945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("John", "Doe", 752945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Ida", "Pfeifer", 458945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Mustafa", "MussDann", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Bin", "Laden", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("Ali", "Alf", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
-        employees.add(new Employee("An", "Ette", 758945, new Location("Hauptplatz", "Linz", 4020, "Austria"), "male", 1500, new Address(" ")));
+        Address linz = new Address("Linz", 4020, "124", "Unionstraße", "Austria");
+        Address wels = new Address("Wels", 4600, "3", "Kaiser Franz Joseph Platz", "Austria");
+        Address officeAddress = new Address("Linz", 4020, "13B", "Peter-Behrens Platz", "Austria");
+        Address shopAddress = new Address("Linz", 4040, "42", "Hauptstraße", "Austria");
+
+        Location office = new Location(officeAddress);
+        Location shop = new Location(shopAddress);
+
+        employees.add(new Employee("Franz", "Huber", 758945, linz, "male", 1500, office));
+        employees.add(new Employee("Helga", "Mair", 745645, linz, "male", 1500, office));
+        employees.add(new Employee("Daniel", "Hofer", 858945, linz, "male", 1500, office));
+        employees.add(new Employee("Susi", "MussDarf", 758943, linz, "male", 1500, office));
+        employees.add(new Employee("Elfi", "Bauer", 758995, linz, "male", 1500, shop));
+        employees.add(new Employee("Udo", "Lindner", 158945, linz, "male", 1500, shop));
+        employees.add(new Employee("Max", "Mustermann", 768945, linz, "male", 1500, shop));
+        employees.add(new Employee("John", "Doe", 752945, linz, "male", 1500, shop));
+        employees.add(new Employee("Ida", "Pfeifer", 458945, wels, "male", 1500, office));
+        employees.add(new Employee("Mustafa", "MussDann", 758945, wels, "male", 1500, office));
+        employees.add(new Employee("Bin", "Laden", 758945, wels, "male", 1500, shop));
+        employees.add(new Employee("Ali", "Alf", 758945, wels, "male", 1500, shop));
+        employees.add(new Employee("An", "Ette", 758945, wels, "male", 1500, office));
     }
 
 }

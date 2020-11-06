@@ -12,7 +12,7 @@ public class Employee {
     private int salary;
     private Address address;
 
-    public Employee(String firstName, String secondName, int svn, Location location, String sex, int salary, Address address) {
+    public Employee(String firstName, String secondName, int svn, Address address, String sex, int salary, Location location) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.svn = svn;
@@ -25,6 +25,58 @@ public class Employee {
 
     public int getSvn() {
         return svn;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setSvn(int svn) {
+        this.svn = svn;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

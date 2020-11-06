@@ -1,27 +1,22 @@
 package model;
 
+import java.util.UUID;
+
 public class Location {
 
-    private String address;
-    private String city;
-    private int zip;
-    private String country;
+    private Address address;
+    private String ID;
 
-    public Location(String address, String city, int zip, String country) {
-        this.address = address;
-        this.city = city;
-        this.zip = zip;
-        this.country = country;
+    public Location(Address address) {
+       this.address = address;
+       ID = UUID.randomUUID().toString();
     }
 
     @Override
     public String toString() {
         return "Location{" +
-                "address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", zip=" + zip +
-                ", country='" + country + '\'' +
+                "address=" + address +
+                ", ID='" + ID + '\'' +
                 '}';
     }
-
 }
