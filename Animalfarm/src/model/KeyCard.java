@@ -1,14 +1,13 @@
 package model;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 public class KeyCard extends Card {
     private final List<String> accessPoints;
 
-    public KeyCard(Employee employee, LocalDate dueDate, List<String>accessPoints) {
-        super(dueDate, "k" + UUID.randomUUID());
+    public KeyCard(Employee employee, List<String>accessPoints) {
+        super("k" + UUID.randomUUID(), employee);
         this.accessPoints = accessPoints;
     }
 

@@ -6,8 +6,8 @@ import java.util.UUID;
 public class CoffeeCard extends Card {
     private double credit;
 
-    public CoffeeCard(LocalDate dueDate, double credit) {
-        super(dueDate, "c" + UUID.randomUUID());
+    public CoffeeCard(LocalDate dueDate, Employee employee, double credit) {
+        super("c" + UUID.randomUUID(), employee);
         this.credit = credit;
     }
 

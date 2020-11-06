@@ -3,16 +3,27 @@ package model;
 import java.time.LocalDate;
 
 public class Card {
-    private Employee employee;
+    private final Employee employee;
     private LocalDate dueDate;
     private final String ID;
 
-    public Card(LocalDate dueDate, String ID) {
-        this.dueDate = dueDate;
+    public Card(String ID, Employee employee) {
+        dueDate = LocalDate.now();
+        // expire in one year
+        dueDate = dueDate.plusYears(1);
         this.ID = ID;
+        this.employee = employee;
     }
 
     public boolean isValid(LocalDate cardTime) {
         return cardTime.isBefore(dueDate);
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public String getID() {
+        return ID;
     }
 }

@@ -31,9 +31,9 @@ public class EmployeeManagement {
 
         double rev = 0;
         for (Employee e : employees) {
-           if (e instanceof Cashier) {
-            rev += ((Cashier) e).getRevenue();
-           }
+            if (e instanceof Cashier) {
+                rev += ((Cashier) e).getRevenue();
+            }
         }
 
         return rev;
@@ -56,9 +56,9 @@ public class EmployeeManagement {
     }
 
 
-    public List<String> getLic (Employee e) {
+    public List<String> getLic(Employee e) {
 
-        if(e instanceof Warehouse){
+        if (e instanceof Warehouse) {
 
             return ((Warehouse) e).getLicenses();
 
@@ -68,22 +68,22 @@ public class EmployeeManagement {
     }
 
 
-    public double getRev (Employee e) {
+    public double getRev(Employee e) {
 
-        if(e instanceof Cashier){
+        if (e instanceof Cashier) {
 
-          return ((Cashier) e).getRevenue();
+            return ((Cashier) e).getRevenue();
 
         }
 
         return -1;
     }
 
-    public double getBoni (Employee e) {
+    public double getBoni(Employee e) {
 
-        if(e instanceof Warehouse){
+        if (e instanceof Warehouse) {
 
-            return  ((Warehouse) e).getBonus();
+            return ((Warehouse) e).getBonus();
 
 
         }
