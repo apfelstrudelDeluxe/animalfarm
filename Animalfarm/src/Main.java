@@ -19,10 +19,13 @@ public class Main {
         System.out.println("2. für Boss");
         System.out.println("3. Auswahl Coffee Card");
         int input = scanner.nextInt();
+        scanner.nextLine();
 
         switch (input) {
             case 1:
-                System.out.println("");
+                System.out.println("Gute Wahl!");
+                officeWorker();
+                break;
             case 2:
                 System.out.println();
             case 3:
@@ -32,6 +35,27 @@ public class Main {
                 break;
 
         }
+    }
+    private static void officeWorker(){
+
+       Employee employee =  getEmp();
+
+
+
+
+    }
+
+    private static Employee getEmp() {
+        System.out.println("Bitte SVN von Mitarbeiter eingeben");
+        int svn = Integer.parseInt(scanner.nextLine());
+        Employee employee = employeeManagement.getEmp(svn);
+        if (employee == null){
+            System.out.println("Nicht gefunden!");
+
+            getEmp();
+
+        }
+               return employee;
     }
 
     private static void setup() {
@@ -57,5 +81,7 @@ public class Main {
         employees.add(new Employee("Ali", "Alf", 758945, wels, "male", 1500, shop));
         employees.add(new Employee("An", "Ette", 758945, wels, "male", 1500, office));
     }
+
+
 
 }
