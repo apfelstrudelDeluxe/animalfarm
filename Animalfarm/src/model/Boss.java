@@ -9,7 +9,7 @@ public class Boss extends Employee {
 
     //hier der Konstruktor wird zum Teil aus dem model.Employee übernommen und die "extra Eigenschaften am Ende angefügt.
     public Boss(String firstName, String secondName, int svn, Location location, String sex, int salary, Address address, String car, String office, List<Employee> employees) {
-        super(firstName, secondName, svn, location, sex, salary, address);
+        super(firstName, secondName, svn, address, sex, salary, location);
         this.employees = employees;
         this.car = car;
         this.office = office;
