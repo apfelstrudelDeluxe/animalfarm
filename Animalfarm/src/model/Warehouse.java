@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Warehouse extends Employee  {
@@ -10,6 +11,11 @@ public class Warehouse extends Employee  {
         super(firstName, secondName, svn, address, sex, salary, location);
         this.bonus = bonus;
         this.licenses = licenses;
+    }
+    public Warehouse (Employee emp, double bonus) {
+        super(emp.getFirstName(), emp.getSecondName(), emp.getSvn(), emp.getAddress(), emp.getSex(), emp.getSalary(), emp.getLocation());
+        this.bonus = bonus;
+        this.licenses = new ArrayList<>();
     }
 
     public double getBonus() {

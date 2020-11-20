@@ -1,6 +1,7 @@
 import controller.EmployeeManagement;
 import model.*;
 
+import javax.print.DocFlavor;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,13 +36,16 @@ public class Main {
 
                 if (sc == pw){
                     System.out.println("Hallo Boss");
+                    bossDetails();
                 } else {
                     System.out.println("Falsches Passwort");
                     officeWorker();
-                    break;
                 }
+                break;
             case 3:
                 System.out.println("");
+                break;
+
             default:
                 System.out.println("falsche Eingabe! ;)");
                 break;
@@ -69,19 +73,65 @@ public class Main {
 
         switch (sc) {
 
-            case 1:
+            case 1: //MA Anlegen
                 System.out.println("Mitarbeiter vom Lager(1), Kassa(2), Büro(3)?");
                 int group = Integer.parseInt((scanner.nextLine()));
-                System.out.println("Vorname");
-                System.out.println("Nachname");
-                System.out.println("SVN");
-                System.out.println("Geschlecht");
-                System.out.println("Gehalt");
+                Employee wareMA = basicEmp();
+                if(group == 1){ //Warehouse Mitarbeiter
+                     System.out.println("Bonus");
+                   double bonus = Double.parseDouble(scanner.nextLine());
+                   Warehouse maNew = new Warehouse(wareMA, bonus);
 
+                    System.out.println("Führerschein eingeben, Abbruch: mit X");
+                    String licenses = scanner.nextLine();
+                    while (!licenses.equals("X")) {
+                        maNew.getLicenses().add(licenses);
+                        System.out.println("Führerschein eingeben");
+                        licenses = scanner.nextLine();
+                    }
+                    System.out.println("Ist es so in Ordnung?");
+                    System.out.println(maNew);
+                    String scan = scanner.nextLine();
+                    if (scan.equals("J")) {
+                        employees.add(maNew);
+                        bossDetails();
+                    } else {bossDetails();}
+
+
+
+                }
+
+
+                basicEmp();
 
         }
 
 
+    }
+
+    private static Employee basicEmp() {
+        System.out.println("Vorname");
+        String firstName = scanner.nextLine();
+
+        System.out.println("Nachname");
+        String lastName = scanner.nextLine();
+        System.out.println("SVN");
+        int svn = Integer.parseInt(scanner.nextLine());
+        System.out.println("Geschlecht");
+        String sex = scanner.nextLine();
+        System.out.println("Gehalt");
+        int salary = Integer.parseInt((scanner.nextLine()));
+
+        System.out.println("Stadt");
+        String city = scanner.nextLine();
+
+        System.out.println("Plz");
+        int zip = Integer.parseInt(scanner.nextLine());
+
+        Address adr = new Address(city, zip, "","","");
+        Location loc = new Location(adr);
+        Employee ma = new Employee(firstName, lastName,svn, adr, sex, salary, loc);
+       return ma;
     }
 
 
@@ -107,7 +157,7 @@ public class Main {
 
             case 2:
 
-                double boni = employeeManagement.getBoni((employee));
+                double boni = employeeManagement.getBoni(employee);
                 if (boni == -1) {
                     System.out.println("Kein Lagermitarbeiter");
                 } else {

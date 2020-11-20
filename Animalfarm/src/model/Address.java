@@ -34,4 +34,15 @@ public class Address {
     public String getCountry() {
         return country;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", postcode=" + postcode +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", street='" + street + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
