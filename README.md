@@ -50,3 +50,17 @@ Nummern raufzählen.
 * Locations Liste: wurde extra in der Main erstellt und bei setup() dann befüllt. 
 
 Next Steps: Boss Cases fertigstellen (Mitarbeiter löschen, Abfrge Umsatz) und CoffeeCard.
+
+## 20.11.2020 Zusammenfassung & Next Steps
+
+###CoffeeCard 
+* abfragen (Betrag & Datum)
+* aufladen.
+* MA vergeben mittels SVN
+* verlängern
+
+###KeyCard
+* Access (Welche Eingänge darf MA benutzen) Wie Warehouse Lic
+* Abfragen
+* Löschen
+* Accesspoints anlegen (Als Klassen)

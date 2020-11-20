@@ -26,4 +26,10 @@ public class Card {
     public String getID() {
         return ID;
     }
+    public void newDate() {
+        dueDate = dueDate.plusYears(1);
+        System.out.println("Das Ablaufdatum ist jetzt " + dueDate);
+    }
+
+
 }
