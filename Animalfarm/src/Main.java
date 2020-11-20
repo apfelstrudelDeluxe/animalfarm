@@ -16,6 +16,10 @@ public class Main {
 
     public static void main(String[] args) {
         setup();
+        mainMenu();
+    }
+
+    private static void mainMenu() {
         System.out.println("Hallo.Welcher Benutzer bist du bzw. was möchtest du tun?");
         System.out.println("1. für Office-Mitarbeiter");
         System.out.println("2. für Boss");
@@ -34,7 +38,7 @@ public class Main {
                 int sc = Integer.parseInt((scanner.nextLine()));
 
 
-                if (sc == pw){
+                if (sc == pw) {
                     System.out.println("Hallo Boss");
                     bossDetails();
                 } else {
@@ -52,9 +56,10 @@ public class Main {
 
         }
     }
-    private static void officeWorker(){
 
-       Employee employee =  getEmp();
+    private static void officeWorker() {
+
+        Employee employee = getEmp();
         System.out.println(employee);
 
         empDetails(employee);
@@ -63,11 +68,13 @@ public class Main {
     }
 
     private static void bossDetails() {
+        System.out.println("*********");
         System.out.println("Was möchtest du machen?");
         System.out.println("1. Mitarbeiter anlegen");
         System.out.println("2. Mitarbeiter löschen");
         System.out.println("3. Gesamtumsatz aufrufen");
-        System.out.println("4. Zurück zum Ursprung");
+        System.out.println("4. Umsatz je Mitarbeiter");
+        System.out.println("5. Zurück zum Ursprung");
 
         int sc = Integer.parseInt((scanner.nextLine()));
 
@@ -77,10 +84,10 @@ public class Main {
                 System.out.println("Mitarbeiter vom Lager(1), Kassa(2), Büro(3)?");
                 int group = Integer.parseInt((scanner.nextLine()));
                 Employee wareMA = basicEmp();
-                if(group == 1){ //Warehouse Mitarbeiter
-                     System.out.println("Bonus");
-                   double bonus = Double.parseDouble(scanner.nextLine());
-                   Warehouse maNew = new Warehouse(wareMA, bonus);
+                if (group == 1) { //Warehouse Mitarbeiter
+                    System.out.println("Bonus");
+                    double bonus = Double.parseDouble(scanner.nextLine());
+                    Warehouse maNew = new Warehouse(wareMA, bonus);
 
                     System.out.println("Führerschein eingeben, Abbruch: mit X");
                     String licenses = scanner.nextLine();
@@ -89,24 +96,68 @@ public class Main {
                         System.out.println("Führerschein eingeben");
                         licenses = scanner.nextLine();
                     }
-                    System.out.println("Ist es so in Ordnung?");
-                    System.out.println(maNew);
-                    String scan = scanner.nextLine();
-                    if (scan.equals("J")) {
-                        employees.add(maNew);
-                        bossDetails();
-                    } else {bossDetails();}
-
+                    saveEmp(maNew);
 
 
                 }
 
+                break;
 
-                basicEmp();
+            case 2: //MA Löschen
+                int ssvn = findMa();
+                System.out.println("Wollen Sie diesen Mitarbeiter löschen? J/N");
+                String scan = scanner.nextLine();
+                if (scan.equals("J")) {
+                    boolean deleted = employeeManagement.deleteEmp(ssvn);
+                    if (!deleted) {
+                        System.out.println("Der Mitarbeiter konnte nicht gelöscht werden.");
+                    }
 
+                }
+
+                break;
+
+            case 3: //Gesamtumsatz
+                System.out.println("Gesamtumsatz " + employeeManagement.revSum());
+
+                break;
+
+            case 4:
+               int svnMa = findMa();
+                System.out.println(employeeManagement.getRev(employeeManagement.getEmp(svnMa)));
+
+                break;
+
+            default: mainMenu();
         }
+        bossDetails();
 
 
+
+    }
+
+    private static int findMa() {
+        System.out.println("Eingabe der SVN");
+        int scsvn = Integer.parseInt((scanner.nextLine()));
+        Employee output = employeeManagement.getEmp(scsvn);
+        if (output == null) {
+            System.out.println("Der Mitarbeiter mit der SVN " + scsvn + " konnte nicht gefunden werden");
+            bossDetails();
+        }
+        System.out.println(output);
+        return scsvn;
+    }
+
+    private static void saveEmp(Employee emp) {
+        System.out.println("Ist es so in Ordnung? J/N (Eingabe erneut starten");
+        System.out.println(emp);
+        String scan = scanner.nextLine();
+        if (scan.equals("J")) {
+            if (!employeeManagement.addEmp(emp)) {
+                System.out.println("Das Einfügen hat nicht funktioniert");
+            }
+        }
+        bossDetails();
     }
 
     private static Employee basicEmp() {
@@ -128,10 +179,10 @@ public class Main {
         System.out.println("Plz");
         int zip = Integer.parseInt(scanner.nextLine());
 
-        Address adr = new Address(city, zip, "","","");
+        Address adr = new Address(city, zip, "", "", "");
         Location loc = new Location(adr);
-        Employee ma = new Employee(firstName, lastName,svn, adr, sex, salary, loc);
-       return ma;
+        Employee ma = new Employee(firstName, lastName, svn, adr, sex, salary, loc);
+        return ma;
     }
 
 
@@ -189,13 +240,13 @@ public class Main {
         System.out.println("Bitte SVN von Mitarbeiter eingeben");
         int svn = Integer.parseInt(scanner.nextLine());
         Employee employee = employeeManagement.getEmp(svn);
-        if (employee == null){
+        if (employee == null) {
             System.out.println("Mitarbeiter mit der SVN " + svn + " nicht gefunden");
 
             getEmp();
 
         }
-               return employee;
+        return employee;
     }
 
     private static void setup() {
@@ -230,7 +281,6 @@ public class Main {
         employees.add(new Employee("Ali", "Alf", 758945, wels, "male", 1500, shop));
         employees.add(new Employee("An", "Ette", 758945, wels, "male", 1500, office));
     }
-
 
 
 }
