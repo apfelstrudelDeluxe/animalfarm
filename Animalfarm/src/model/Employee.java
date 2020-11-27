@@ -11,8 +11,10 @@ public class Employee {
     private String sex;
     private int salary;
     private Address address;
+    private CoffeeCard coffeeCard;
+    private KeyCard keyCard;
 
-    public Employee(String firstName, String secondName, int svn, Address address, String sex, int salary, Location location) {
+    public Employee(String firstName, String secondName, int svn, Address address, String sex, int salary, Location location, CoffeeCard coffeeCard) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.svn = svn;
@@ -20,7 +22,17 @@ public class Employee {
         this.sex = sex;
         this.salary = salary;
         this.address = address;
+        this.coffeeCard = coffeeCard;
+        this.keyCard = new KeyCard();           // neue leere Liste für mehrere Zugänge
+        keyCard.addAccessPoint(location);       // 1x KeyCard hinzufügen mit Arbeitsplatz
+    }
 
+    public KeyCard getKeyCard() {
+        return keyCard;
+    }
+
+    public CoffeeCard getCoffeeCard() {
+        return coffeeCard;
     }
 
     public int getSvn() {

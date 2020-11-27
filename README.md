@@ -64,3 +64,9 @@ Next Steps: Boss Cases fertigstellen (Mitarbeiter löschen, Abfrge Umsatz) und C
 * Abfragen
 * Löschen
 * Accesspoints anlegen (Als Klassen)
+
+
+## 27.11.2020 Zusammenfassung & Next Steps
+* Wir sind bei der KeyCard stehen geblieben
+* Main Zeile 141: neue Locations strukturiert einfügen bzw. anglegen
+* Main Zeile 152: einzele Locations löschen
