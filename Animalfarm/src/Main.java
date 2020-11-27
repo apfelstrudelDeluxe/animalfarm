@@ -229,7 +229,7 @@ public class Main {
                 break;
 
             case 4:
-                getEmp();
+                empDetails(getEmp());
                 break;
 
             case 5:
