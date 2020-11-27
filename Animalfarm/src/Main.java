@@ -191,7 +191,8 @@ public class Main {
         System.out.println("1. Umsatz abfragen");
         System.out.println("2. Bonus abfragen");
         System.out.println("3. Führerschein abfragen");
-        System.out.println("4. Zurück zum Ursprung");
+        System.out.println("4. Mitarbeiter wechseln");
+        System.out.println("5. Zurück zum Hauptmenü");
 
         int sc = Integer.parseInt((scanner.nextLine()));
         switch (sc) {
@@ -230,7 +231,13 @@ public class Main {
             case 4:
                 getEmp();
                 break;
+
+            case 5:
+                mainMenu();
+                break;
+
             default:
+                //mainMenu();
                 empDetails(employee);
 
         }
