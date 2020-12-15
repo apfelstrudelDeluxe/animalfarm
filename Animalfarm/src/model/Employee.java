@@ -31,6 +31,10 @@ public class Employee {
         return keyCard;
     }
 
+    public void setKeyCard(KeyCard keyCard) {
+        this.keyCard = keyCard;
+    }
+
     public CoffeeCard getCoffeeCard() {
         return coffeeCard;
     }

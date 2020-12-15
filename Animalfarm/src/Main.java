@@ -111,6 +111,22 @@ public class Main {
 
     }
 
+    /* add new location
+                System.out.println("In welcher Stadt ist die neue Location?");
+                String city = scanner.nextLine();
+                System.out.println("Geben Sie eine Plz ein?");
+                int postcode = Integer.parseInt(scanner.nextLine());
+                System.out.println("Geben Sie eine Hausnummer ein?");
+                String houseNumber = scanner.nextLine();
+                System.out.println("Geben Sie eine Strasse ein?");
+                String street = scanner.nextLine();
+                System.out.println("Geben Sie ein Land ein?");
+                String country = scanner.nextLine();
+                Address address = new Address(city, postcode, houseNumber, street, country);
+
+                locations.add(new Location(address));
+     */
+
     private static void keyCheck(Employee emp) {
         System.out.println("Was möchtest du mit der Key-Card machen?");
         System.out.println("1. Alle Zugänge der Key-Card abfragen");
@@ -132,45 +148,21 @@ public class Main {
                 break;
 
             case 2:
-                int index = 0;
-                for (Location l : keycard.getAccessPoints()) {
-                    System.out.println(index++ + " " + l);
-                }
-                System.out.println("Geben Sie den Index der Location ein, die sie löschen möchten");
-
-                keycard.removeAccessPoint(Integer.parseInt(scanner.nextLine()));
-
-
+                emp.setKeyCard(null);
                 System.out.println("-----------------------------------------");
                 keyCheck(emp);
                 break;
 
             case 3:
                 // addAccessPoint
-
-                System.out.println("Wählen Sie eine der vorhandenen Locations aus oder legen Sie eine neue an (Eingabe: X)");
-                // addAccessPoint(ap);
-                System.out.println("In welcher Stadt ist die neue Location?");
-                String city = scanner.nextLine();
-                System.out.println("Geben Sie eine Plz ein?");
-                int postcode = Integer.parseInt(scanner.nextLine());
-                System.out.println("Geben Sie eine Hausnummer ein?");
-                String houseNumber = scanner.nextLine();
-                System.out.println("Geben Sie eine Strasse ein?");
-                String street = scanner.nextLine();
-                System.out.println("Geben Sie ein Land ein?");
-                String country = scanner.nextLine();
-                Address address = new Address(city, postcode, houseNumber, street, country);
-
-                keycard.addAccessPoint(new Location(address));
-
+                keycard.addAccessPoint(chooseLocation());
                 System.out.println("-----------------------------------------");
                 keyCheck(emp);
                 break;
 
 
             case 4:
-
+                keycard.removeAccessPoint(chooseLocation());
                 System.out.println("-----------------------------------------");
                 keyCheck(emp);
                 break;
@@ -187,15 +179,21 @@ public class Main {
 
     }
 
+    private static Location chooseLocation() {
+        int index = 0;
+        for (Location l : locations) {
+            System.out.println(index++ + " " + l);
+        }
+
+        System.out.println("Geben Sie den Index der Location ein, die sie löschen möchten");
+        return locations.get(Integer.parseInt(scanner.nextLine()));
+    }
 
     private static void officeWorker() {
-
         Employee employee = getEmp();
         System.out.println(employee);
 
         empDetails(employee);
-
-
     }
 
 
@@ -211,7 +209,6 @@ public class Main {
         int sc = Integer.parseInt((scanner.nextLine()));
 
         switch (sc) {
-
             case 1: //MA Anlegen
                 System.out.println("Mitarbeiter vom Lager(1), Kassa(2), Büro(3)?");
                 int group = Integer.parseInt((scanner.nextLine()));
@@ -316,8 +313,7 @@ public class Main {
 
         Address adr = new Address(city, zip, "", "", "");
         Location loc = new Location(adr);
-        Employee ma = new Employee(firstName, lastName, svn, adr, sex, salary, loc, new CoffeeCard(credit));
-        return ma;
+        return new Employee(firstName, lastName, svn, adr, sex, salary, loc, new CoffeeCard(credit));
     }
 
 
