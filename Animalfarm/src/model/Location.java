@@ -12,6 +12,11 @@ public class Location {
        ID = UUID.randomUUID().toString();
     }
 
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
         return "Location{" +

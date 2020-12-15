@@ -21,6 +21,20 @@ public class KeyCard extends Card {
         return accessPoints.add(l);
     }
 
+    // KeyCard
+    public boolean removeAccessPoint(Location l) {
+        return accessPoints.remove(l);
+    }
+
+    public void removeAccessPoint(int index) {
+        accessPoints.remove(index);
+    }
+
+
+    public Location getAccessPoint (int index) {
+        return accessPoints.get(index);
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\n" + accessPoints;
